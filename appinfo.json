@@ -1,0 +1,12 @@
+
+{
+  "id": "com.qubyka.seekee.tv",
+  "version": "1.0.1",
+  "vendor": "Qubyka Digital",
+  "type": "web",
+  "main": "index.html",
+  "title": "DannyPipe96",
+  "icon": "icon.png",
+  "resolution": "1920x1080"
+
+}
