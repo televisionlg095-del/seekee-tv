@@ -1,0 +1,33 @@
+
+name: Construir DannyPipe96 para LG webOS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar herramientas webOS
+        run: npm install -g @webos-tools/cli
+
+      - name: Crear paquete IPK
+        run: |
+          ares-package . --outdir ./dist
+
+      - name: Publicar paquete como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: DannyPipe96-webOS
+          path: dist/*.ipk
+          if-no-files-found: error
+          
